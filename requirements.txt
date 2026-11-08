@@ -1,0 +1,3 @@
+lolka.py
+requests
+beautifulsoup4

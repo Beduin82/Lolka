@@ -1,7 +1,7 @@
 {
   "streaks": {
     "mirror": {
-      "current": 3,
+      "current": 4,
       "max": 5,
       "dist": {
         "5": 1,
@@ -18,7 +18,7 @@
       }
     },
     "total_less": {
-      "current": 0,
+      "current": 1,
       "max": 8,
       "dist": {
         "3": 1,
@@ -30,11 +30,11 @@
   "hit_stats": {
     "hot": {
       "yes": 10,
-      "no": 58
+      "no": 62
     },
     "cold": {
-      "yes": 13,
-      "no": 55
+      "yes": 14,
+      "no": 58
     }
   }
 }

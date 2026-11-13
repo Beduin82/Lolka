@@ -1,10 +1,10 @@
 {
-  "bank_spent": 2800,
-  "bank_won": 2628.8999999999996,
+  "bank_spent": 3200,
+  "bank_won": 2971.7999999999997,
   "success_predictions": 4,
-  "fail_predictions": 3,
+  "fail_predictions": 4,
   "max_win_streak": 3,
-  "current_win_streak": 3,
+  "current_win_streak": 0,
   "max_loss_streak": 3,
-  "current_loss_streak": 0
+  "current_loss_streak": 1
 }

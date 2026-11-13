@@ -1,31 +1,35 @@
 {
   "streaks": {
     "mirror": {
-      "current": 5,
+      "current": 0,
       "max": 5,
-      "dist": {}
+      "dist": {
+        "5": 1
+      }
     },
     "two_even": {
-      "current": 1,
+      "current": 2,
       "max": 2,
       "dist": {
         "2": 1
       }
     },
     "total_less": {
-      "current": 3,
+      "current": 0,
       "max": 3,
-      "dist": {}
+      "dist": {
+        "3": 1
+      }
     }
   },
   "hit_stats": {
     "hot": {
       "yes": 3,
-      "no": 17
+      "no": 21
     },
     "cold": {
-      "yes": 5,
-      "no": 15
+      "yes": 6,
+      "no": 18
     }
   }
 }

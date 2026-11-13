@@ -1,10 +1,29 @@
 {
-  "bank_spent": 14800,
-  "bank_won": 11707.099999999999,
-  "success_predictions": 14,
-  "fail_predictions": 23,
-  "max_win_streak": 3,
-  "current_win_streak": 1,
-  "max_loss_streak": 5,
-  "current_loss_streak": 0
+  "streaks": {
+    "mirror": {
+      "current": 1,
+      "max": 1,
+      "dist": {}
+    },
+    "two_even": {
+      "current": 1,
+      "max": 1,
+      "dist": {}
+    },
+    "total_less": {
+      "current": 0,
+      "max": 0,
+      "dist": {}
+    }
+  },
+  "hit_stats": {
+    "hot": {
+      "yes": 0,
+      "no": 4
+    },
+    "cold": {
+      "yes": 2,
+      "no": 2
+    }
+  }
 }

@@ -1,8 +1,8 @@
 {
   "streaks": {
     "mirror": {
-      "current": 3,
-      "max": 3,
+      "current": 4,
+      "max": 4,
       "dist": {}
     },
     "two_even": {
@@ -13,19 +13,19 @@
       }
     },
     "total_less": {
-      "current": 1,
-      "max": 1,
+      "current": 2,
+      "max": 2,
       "dist": {}
     }
   },
   "hit_stats": {
     "hot": {
-      "yes": 2,
-      "no": 10
+      "yes": 3,
+      "no": 13
     },
     "cold": {
-      "yes": 4,
-      "no": 8
+      "yes": 5,
+      "no": 11
     }
   }
 }

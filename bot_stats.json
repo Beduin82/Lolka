@@ -1,7 +1,7 @@
 {
   "streaks": {
     "mirror": {
-      "current": 4,
+      "current": 5,
       "max": 21,
       "dist": {
         "5": 1,
@@ -11,7 +11,7 @@
       }
     },
     "two_even": {
-      "current": 2,
+      "current": 0,
       "max": 6,
       "dist": {
         "2": 1,
@@ -35,11 +35,11 @@
   "hit_stats": {
     "hot": {
       "yes": 34,
-      "no": 226
+      "no": 230
     },
     "cold": {
-      "yes": 39,
-      "no": 221
+      "yes": 40,
+      "no": 224
     }
   },
   "consecutive_mirrors": 0

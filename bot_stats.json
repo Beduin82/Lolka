@@ -3,30 +3,30 @@
     "mirror": {
       "current_loss": 0,
       "max_loss": 21,
-      "current_win": 1,
-      "max_win": 1
+      "current_win": 2,
+      "max_win": 2
     },
     "two_even": {
-      "current_loss": 6,
-      "max_loss": 6,
+      "current_loss": 7,
+      "max_loss": 7,
       "current_win": 0,
       "max_win": 1
     },
     "total_less": {
       "current_loss": 0,
       "max_loss": 8,
-      "current_win": 1,
+      "current_win": 2,
       "max_win": 4
     }
   },
   "hit_stats": {
     "hot": {
-      "yes": 42,
-      "no": 254
+      "yes": 44,
+      "no": 256
     },
     "cold": {
       "yes": 45,
-      "no": 251
+      "no": 255
     }
   }
 }

@@ -1,0 +1,32 @@
+{
+  "streaks": {
+    "mirror": {
+      "current_loss": 1,
+      "max_loss": 1,
+      "current_win": 0,
+      "max_win": 0
+    },
+    "two_even": {
+      "current_loss": 1,
+      "max_loss": 1,
+      "current_win": 0,
+      "max_win": 0
+    },
+    "total_less": {
+      "current_loss": 0,
+      "max_loss": 0,
+      "current_win": 1,
+      "max_win": 1
+    }
+  },
+  "hit_stats": {
+    "hot": {
+      "yes": 1,
+      "no": 3
+    },
+    "cold": {
+      "yes": 2,
+      "no": 2
+    }
+  }
+}

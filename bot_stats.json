@@ -1,32 +1,32 @@
 {
   "streaks": {
     "mirror": {
-      "current_loss": 4,
+      "current_loss": 5,
       "max_loss": 21,
       "current_win": 0,
       "max_win": 2
     },
     "two_even": {
-      "current_loss": 0,
+      "current_loss": 1,
       "max_loss": 8,
-      "current_win": 1,
+      "current_win": 0,
       "max_win": 1
     },
     "total_less": {
       "current_loss": 0,
       "max_loss": 8,
-      "current_win": 6,
-      "max_win": 6
+      "current_win": 7,
+      "max_win": 7
     }
   },
   "hit_stats": {
     "hot": {
-      "yes": 48,
-      "no": 264
+      "yes": 50,
+      "no": 266
     },
     "cold": {
-      "yes": 49,
-      "no": 263
+      "yes": 51,
+      "no": 265
     }
   }
 }

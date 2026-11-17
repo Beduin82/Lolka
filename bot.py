@@ -56,7 +56,7 @@ EVENTS = {
 
 state = {
     "duplicate_streak": 0,
-    "prev_preds": {}, # {"Название": {"z_score": 1.8, "gap": 5, "pred": True}}
+    "prev_preds": {},
     "prev_hot": [],
     "prev_cold": []
 }
@@ -69,7 +69,8 @@ def load_bot_stats():
         r = requests.get(f"https://api.github.com/repos/{GITHUB_REPO}/contents/{GITHUB_STATS_FILE}",
                          headers={"Authorization": f"token {GITHUB_TOKEN}"})
         if r.status_code == 200:
-            state.update(json.loads(base64.b64decode(r.json()['content']).decode('utf-8')))
+            loaded = json.loads(base64.b64decode(r.json()['content']).decode('utf-8'))
+            state.update(loaded)
             print("📥 Стейт загружен.", flush=True)
     except Exception: pass
 
@@ -101,31 +102,24 @@ def calculate_z_scores(draws):
         gaps = []
         current_gap = 0
         
-        # Собираем историю всех пауз
         for _, nums in draws:
             if func(nums):
-                if current_gap > 0 or len(gaps) == 0: # Игнорируем нулевые паузы в начале
+                if current_gap > 0 or len(gaps) == 0:
                     gaps.append(current_gap)
                 current_gap = 0
             else:
                 current_gap += 1
                 
-        # Текущий пропуск (в конце списка)
         active_gap = current_gap
 
-        # Считаем статистику
         if len(gaps) > 1:
             mean_gap = statistics.mean(gaps)
             stdev_gap = statistics.stdev(gaps)
-            if stdev_gap == 0: stdev_gap = 1.0 # Защита от деления на ноль
-            
-            # Z-score: на сколько сигм текущий пропуск отличается от среднего
+            if stdev_gap == 0: stdev_gap = 1.0
             z_score = (active_gap - mean_gap) / stdev_gap
         else:
             mean_gap, z_score = active_gap, 0
             
-        # Прогноз "Да", если Z-score > 1.5 (аномально долгая засуха)
-        # Или если пропуск больше среднего, но Z-score ниже
         pred_yes = z_score > 1.5 
         
         results[name] = {
@@ -246,20 +240,28 @@ def main_loop():
                         else:
                             state["duplicate_streak"] = 0
 
-                        # Сверка прогнозов
+                        # Сверка прогнозов (С ЗАЩИТОЙ ОТ СТАРОГО ФОРМАТА)
                         check_msg = ""
                         if state.get("prev_preds"):
                             check_msg = "📊 **Сверка прогнозов:**\n"
                             for name, data in state["prev_preds"].items():
                                 if name not in EVENTS: continue
-                                predicted_yes = data["pred"]
+                                
+                                # ЗАЩИТА: если загрузился старый формат (bool), пропускаем его
+                                if isinstance(data, bool):
+                                    predicted_yes = data
+                                    z_val = "?"
+                                else:
+                                    predicted_yes = data.get("pred", False)
+                                    z_val = data.get("z_score", 0)
+                                    
                                 actual = EVENTS[name](nums)
                                 
                                 if predicted_yes:
                                     if actual:
-                                        check_msg += f"✅ {name} (Z={data['z_score']})\n"
+                                        check_msg += f"✅ {name} (Z={z_val})\n"
                                     else:
-                                        check_msg += f"x {name} (Z={data['z_score']})\n"
+                                        check_msg += f"x {name} (Z={z_val})\n"
                             check_msg += "\n"
 
                         # Новый прогноз на основе Z-score
@@ -285,7 +287,7 @@ def main_loop():
                         active = [f"{name} (Z={data['z_score']})" for name, data in new_preds.items() if data['pred']]
                         
                         if active:
-                            for i in range(0, len(active), 2): # По 2 события в строку
+                            for i in range(0, len(active), 2):
                                 msg += " | ".join(active[i:i+2]) + "\n"
                         else:
                             msg += "Нет сильных аномалий.\n"
